@@ -56,6 +56,8 @@ body {
     justify-content: center;
     margin-bottom: 2rem;
     border: 2px solid white;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 .range_container {
@@ -78,6 +80,30 @@ body {
     /* flex-direction: column; */
 }
 
+/* For all range slider */
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    height: 0.5rem;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 2rem;
+    width: 0.7rem;
+    background-color: rgb(121, 153, 223);
+    /* border: 1px solid black; */
+}
+
+input[type="checkbox"] {
+    accent-color: rgb(121, 153, 223);
+}
+
 #genBtn {
     background-color: #8EC5FC;
     color: white;
@@ -90,8 +116,14 @@ body {
 
 }
 
-
 #genBtn:active {
     background-color: #63abf3;
     transition: 0.1s ease-in-out;
+}
+
+@media (max-width: 425px) {
+    .box {
+        height: 70%;
+        width: 80%;
+    }
 }

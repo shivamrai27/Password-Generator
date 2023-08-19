@@ -4,6 +4,7 @@ let isUppercase = false;
 let isNumbers = false;
 let isSymbols = false;
 
+const passwordEl = document.getElementById('password');
 const passwordRangeInputEl = document.getElementById('passRangeInput');
 const passRangeValueEl = document.getElementById('passRangeValue');
 const genBtnEl = document.getElementById('genBtn');
@@ -38,12 +39,23 @@ genBtnEl.addEventListener('click', () => {
     const numbersCheckEl = document.getElementById('numbers');
     const symbolsCheckEl = document.getElementById('symbols');
 
-    isUppercase = upperCaseCheckEl.Checked;
-    isNumbers = numbersCheckEl.Checked;
-    isSymbols = symbolsCheckEl.Checked;
+    isUppercase = upperCaseCheckEl.checked;
+    isNumbers = numbersCheckEl.checked;
+    isSymbols = symbolsCheckEl.checked;
 
-    const passwordEl = document.getElementById('password');
     const password = generatePassword(passwordLength);
     passwordEl.innerHTML = password;
-    // console.log(generatePassword(8));
-})
+
+});
+
+passwordEl.addEventListener('click', (e) => {
+    if (e.target.innerText.length > 0) {
+        navigator.clipboard.writeText(passwordEl.innerText)
+            .then(() => {
+                alert("Copied to clipboard");
+
+            }).catch((err) => {
+                alert("Could not copy password")
+            })
+    }
+});
